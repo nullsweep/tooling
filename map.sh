@@ -22,7 +22,7 @@ if [ ! -f "$XSL_PATH" ]; then
 fi
 
 echo "[*] Scanning $TARGET..."
-nmap -sV -oX - "$TARGET" | xsltproc "$XSL_PATH" - > "$FILENAME"
+nmap -sV -sC -oX - "$TARGET" | xsltproc "$XSL_PATH" - > "$FILENAME"
 
 if [ $? -eq 0 ]; then
   echo "[+] Scan complete. Report saved as $FILENAME"
